@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo List</title>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <ul id="task-list">
+  </ul>
+  <form onsubmit="addTask(); return false;">
+    <input type="text" id="task-input" placeholder="Enter a task">
+    <button type="submit">Add</button>
+  </form>
+  <script>
+    const taskList = document.getElementById("task-list");
+
+    function addTask() {
+      const taskInput = document.getElementById("task-input");
+      const task = taskInput.value;
+      taskInput.value = "";
+
+      fetch("/tasks", {
+        method: "POST",
+        body: JSON.stringify({ task: task }),
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          const li = document.createElement("li");
+          li.innerText = task;
+          taskList.appendChild(li);
+        });
+    }
+
+    function getTasks() {
+      fetch("/tasks")
+        .then((res) => res.json())
+        .then((tasks) => {
+          tasks.forEach((task) => {
+            const li = document.createElement("li");
+            li.innerText = task.task;
+            taskList.appendChild(li);
+          });
+        });
+    }
+
+    getTasks();
+  </script>
+</body>
+</html>

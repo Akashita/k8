@@ -4,13 +4,13 @@ const app = express();
 const port = process.env.PORT;
 
 app.use(express.json());
-app.use(express.static(__dirname + '/public')); // Serve static files from the "public" directory
+app.use(express.static(__dirname + '/public'));
 
 let collection;
 
 let client = new MongoClient(process.env.MONGO_DB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect((err) => {
-  collection = client.db("test").collection("devices");
+  collection = client.db("test").collection("tasks");
   client.close();
 });
 
@@ -28,7 +28,7 @@ app.post("/tasks", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.sendFile('/app/public/index.html'); // Serve the HTML file
+    res.sendFile('/app/public/index.html');
 });
 
 app.listen(port, () => {

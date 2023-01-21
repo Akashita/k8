@@ -29,7 +29,7 @@ spec:
               value: mongodb://nodejs-kubernetes-mongodb:27017/nodejs-kubernetes
             - name: PORT
               value: "80"
-          image: nakashitanb/local-nodejs-kubernetes
+          image: nakashitanb/local-nodejs-kubernetes:1
           name: nodejs-kubernetes
           ports:
             - containerPort: 80

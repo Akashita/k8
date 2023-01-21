@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: nodejs-kubernetes
   name: nodejs-kubernetes
 spec:
+  type: LoadBalancer
   ports:
     - name: "8099"
       port: 8099

@@ -22,7 +22,7 @@ http://localhost:8099/
 
 ## Modification des sources du projet
 
-Comme l'image de notre projet est hébergée sur dockerHUB, si des modifications sont faite aux sources du projet, elles doivent être `push` sur dockerHUB pour être prise en compte.
+Comme l'image de notre projet est hébergée sur dockerHUB, si des modifications sont faites aux sources du projet, elles doivent être `push` sur dockerHUB pour être prise en compte.
 
 Pour ce faire :
 
@@ -47,7 +47,7 @@ Pour ce faire :
 
 + Tunnel minikube :
 
-    Permet d'accèder à l'application lancer depuis l'exterieur de la machine virtuel (à la façon d'un VPN). La commande : 
+    Permet d'accéder à l'application lancer depuis l'extérieur de la machine virtuel (à la façon d'un VPN). La commande : 
     ```
     minikube tunnel
     ```
@@ -57,22 +57,22 @@ Pour ce faire :
     ```
     kubectl apply -f deployments 
     ```
-    Lit les fichier présente dans le dossier  "deployments"  pour créer et déployer les services voulut.
+    Lit les fichiers présents dans le dossier  "deployments"  pour créer et déployer les services voulut.
 
 + Vérification : 
     ```
     kubectl get pods
     ```
-    Permet de vérifier que tout c'est bien lancé et de voir l'état actuel de chaques pods
+    Permet de vérifier que tout c'est bien lancé et de voir l'état actuel de chaque pods
 
 + Services :
     ```
     kubectl get services
     ```
-    Permet de voir les différents services qui tourne sur le cluster et leur adresses associer, notamment l'adresse que nous pouvons avoir depuis l'exterieur (et son port)
+    Permet de voir les différents services qui tournent sur le cluster et leurs adresses associer, notamment l'adresse que nous pouvons avoir depuis l'extérieur (et son port)
     
 + Application : 
-    Pour accèder à l'application, il faut récupérer l'adresse IP (colonne `EXTERNAL-IP`) et le port du services correspondant à l'applcation nodejs.  
+    Pour accéder à l'application, il faut récupérer l'adresse IP (colonne `EXTERNAL-IP`) et le port du service correspondant à l'application nodejs.  
     Dans notre cas, l'application est disponible à l'adresse : 
     ```
     http://10.111.20.233:8099
